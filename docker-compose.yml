@@ -1,0 +1,24 @@
+version: '3'
+services:
+  ubuntu:
+    image: ubuntu:latest
+    container_name: ubuntu
+    volumes:
+      - ./scripts:/scripts
+    command: /bin/bash -c "cd /scripts && chmod +x scripts.sh && ./scripts.sh && apt-get update && apt install -y cron"
+    #command: /bin/bash -c "cd /scripts && chmod +x verif_scripts.sh && ./verif_script.sh "
+    privileged: true
+
+
+
+  ubuntu2:
+    image: ubuntu:latest
+    container_name: ubuntu2
+    command: /bin/bash -c " mkdir -p backup && ls /backup -l && apt-get update "
+    depends_on:
+      - ubuntu
+ 
+
+    
+    
+
