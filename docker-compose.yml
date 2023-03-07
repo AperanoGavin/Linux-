@@ -4,9 +4,9 @@ services:
     image: ubuntu:latest
     container_name: ubuntu
     volumes:
-      - ./scripts:/scripts
-    command: /bin/bash -c "cd /scripts && chmod +x scripts.sh && ./scripts.sh && apt-get update && apt install -y cron"
-    #command: /bin/bash -c "cd /scripts && chmod +x verif_scripts.sh && ./verif_script.sh "
+      - ./:/scripts
+    command: /bin/bash -c "cd /scripts/scripts && chmod +x scripts.sh && ./scripts.sh && apt-get update && apt install -y cron"
+    #command: /bin/bash -c "cd /scripts/scripts && ls && chmod +x verifScript.sh && ./verifScript.sh"
     privileged: true
 
 
